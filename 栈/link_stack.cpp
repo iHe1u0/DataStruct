@@ -2,12 +2,12 @@
 #include <cstdio>
 #include <cstdlib>
 
-//	判空
+// 判空
 bool isEmpty(LinkStackList stack) {
 	return stack == NULL;
 }
 
-//	初始化栈
+// 初始化栈
 bool InitStack(LinkStackList& stack) {
 	stack = (LinkStackNode*)malloc(sizeof(LinkStackNode));
 	if (stack == NULL)
@@ -18,7 +18,7 @@ bool InitStack(LinkStackList& stack) {
 	return true;
 }
 
-//	入栈
+// 入栈
 void Push(LinkStackList& stack, ElemType data) {
 	if (stack == NULL)
 	{
@@ -29,7 +29,7 @@ void Push(LinkStackList& stack, ElemType data) {
 	{
 		lastNode = lastNode->next;
 	}
-	//	构造一个节点
+	// 构造一个节点
 	LinkStackNode* node = (LinkStackNode*)malloc(sizeof(LinkStackNode));
 	if (node != NULL)
 	{
@@ -39,7 +39,7 @@ void Push(LinkStackList& stack, ElemType data) {
 	}
 }
 
-//	出栈
+// 出栈
 ElemType Pop(LinkStackList& stack) {
 	if (stack == NULL)
 	{
