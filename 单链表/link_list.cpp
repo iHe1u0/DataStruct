@@ -87,13 +87,13 @@ bool InsertForward(LinkList& list, int index, ElemType data) {
 	LNode* pCurrentNode;  // 当前的节点
 	int currentIndex = 0; // 当前节点(pCurrent)指向的节点位置
 	pCurrentNode = list;  // list指向的是原链表的头结点，原链表的头结点不存储数据
-	//	循环找到要插入的位置(index)之前的节点
+	// 循环找到要插入的位置(index)之前的节点
 	while (pCurrentNode != NULL && currentIndex < index - 1)
 	{
 		pCurrentNode = pCurrentNode->pNext;
 		currentIndex++;
 	}
-	//	循环一遍，找到最后还没找到要插入的位置
+	// 循环一遍，找到最后还没找到要插入的位置
 	if (pCurrentNode == NULL)
 	{
 		return false;
@@ -122,8 +122,8 @@ bool InsertForward(LinkList list, ElemType data) {
 	}
 	node->pNext = list->pNext;
 	list->pNext = node;
-	node->data  = list->data;
-	list->data  = data;
+	node->data = list->data;
+	list->data = data;
 	return true;
 }
 
@@ -138,7 +138,7 @@ bool InsertBack(LinkList& list, ElemType data) {
 	{
 		return false;
 	}
-	node->data  = data;
+	node->data = data;
 	node->pNext = list->pNext;
 	list->pNext = node;
 	return true;
@@ -163,22 +163,22 @@ bool DeleteNode(LinkList& list, int index, ElemType& data) {
 	{
 		return false;
 	}
-	LNode* deletedNode  = pCurrentNode->pNext; // 指向要被删除的节点
-	pCurrentNode->pNext = deletedNode->pNext;
-	data                = deletedNode->data;
+	LNode* deletedNode = pCurrentNode->pNext; // 指向要被删除的节点
+	pCurrentNode->pNext = deletedNode->pNext; // 断开要被删除的节点
+	data = deletedNode->data;
 	free(deletedNode);
 	return true;
 }
 
-//	删除指定节点
+// 删除指定节点
 bool DeleteNode(LNode* node) {
 	if (node == NULL)
 	{
 		return false;
 	}
 	LNode* nextNode = node->pNext;
-	node->data      = nextNode->data;
-	node->pNext     = nextNode->pNext;
+	node->data = nextNode->data;
+	node->pNext = nextNode->pNext;
 	free(nextNode);
 	return true;
 }

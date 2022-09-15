@@ -10,7 +10,6 @@ typedef struct {
 	int front, rear;        // 队头指针和队尾指针
 }SeqQueue;
 
-
 // 队列的链式实现
 // 双端队列可以看做是一种特殊的链式队列
 typedef struct LinkNode {

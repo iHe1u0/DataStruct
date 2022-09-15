@@ -8,7 +8,7 @@ typedef struct DNode {
 	DNode* prior, * next;
 }DNode, * DLinkList;
 
-//	在priorNode节点后插入node节点
+// 在priorNode节点后插入node节点
 bool Insert(DNode* priorNode, DNode* node) {
 	if (priorNode == NULL || node == NULL)
 	{
@@ -24,7 +24,7 @@ bool Insert(DNode* priorNode, DNode* node) {
 	return true;
 }
 
-//	删除节点node后的一个节点
+// 删除节点node后的一个节点
 bool DeleteNode(DNode* node) {
 	if (node == NULL)
 	{
@@ -44,7 +44,7 @@ bool DeleteNode(DNode* node) {
 	return true;
 }
 
-//	判空
+// 判空
 bool isEmpty(DLinkList list) {
 	if (list->next == nullptr)
 	{
@@ -53,7 +53,7 @@ bool isEmpty(DLinkList list) {
 	return false;
 }
 
-//	向后遍历查找target节点
+// 向后遍历查找target节点
 int FindBack(DNode* node, ElemType target) {
 	if (node == NULL)
 	{
@@ -72,7 +72,7 @@ int FindBack(DNode* node, ElemType target) {
 	return index;
 }
 
-//	初始化双链表
+// 初始化双链表
 bool InitDLinkList(DLinkList& list) {
 	list = (DLinkList)malloc(sizeof(DNode));
 	if (list == NULL)
@@ -84,7 +84,7 @@ bool InitDLinkList(DLinkList& list) {
 	return true;
 }
 
-//	销毁一个双链表
+// 销毁一个双链表
 bool DestoryDLinkList(DLinkList& list) {
 	if (list == NULL)
 	{
@@ -109,12 +109,16 @@ int main() {
 	for (int i = 1; i < 10; i++)
 	{
 		DNode* node = (DNode*)malloc(sizeof(DNode));
-		node->data = i;
-		node->next = NULL;
-		node->prior = NULL;
-		Insert(list, node);
+		if (node == NULL)
+		{
+			node->data = i;
+			node->next = NULL;
+			node->prior = NULL;
+			Insert(list, node);
+		}
 	}
-	//	查找值为5的节点
+
+	// 查找值为5的节点
 	int location = FindBack(list, 5);
 	printf("值为5的节点在第%d处\n", location);
 	free(list);
