@@ -2,15 +2,15 @@
 #include <cstdlib>
 #include <stdbool.h>
 
-#define ElemType int
+typedef int ElemType;
 
 typedef struct LNode {
 	ElemType data;
 	struct LNode* pNext;
 } LNode, * LinkList;
 
-//	求单链表的长度length
-size_t GetLength(LinkList list) {
+// 求单链表的长度length
+int GetLength(LinkList list) {
 	if (list == NULL)
 	{
 		return 0;
@@ -36,7 +36,7 @@ LinkList InitList() {
 	return list;
 }
 
-//	按位查找，返回第index个元素
+// 按位查找，返回第index个元素
 LNode* GetElem(LinkList list, int index) {
 	if (list == NULL || index < 0)
 	{
@@ -73,7 +73,7 @@ int FindElem(LinkList list, ElemType target) {
 	return currentIndex;
 }
 
-// assert if the link list is empty
+// 判断是否为空
 bool isEmpty(LinkList list) {
 	return list->pNext == NULL;
 }
@@ -84,9 +84,9 @@ bool InsertForward(LinkList& list, int index, ElemType data) {
 	{
 		return false;
 	}
-	LNode* pCurrentNode;	//	当前的节点
-	int currentIndex = 0;		//	当前节点(pCurrent)指向的节点位置
-	pCurrentNode = list;	//	list指向的是原链表的头结点，原链表的头结点不存储数据
+	LNode* pCurrentNode;  // 当前的节点
+	int currentIndex = 0; // 当前节点(pCurrent)指向的节点位置
+	pCurrentNode = list;  // list指向的是原链表的头结点，原链表的头结点不存储数据
 	//	循环找到要插入的位置(index)之前的节点
 	while (pCurrentNode != NULL && currentIndex < index - 1)
 	{
@@ -99,12 +99,17 @@ bool InsertForward(LinkList& list, int index, ElemType data) {
 		return false;
 	}
 	LNode* node = (LNode*)malloc(sizeof(LNode));
+	if (node == NULL)
+	{
+		return false;
+	}
 	node->data = data;
 	node->pNext = pCurrentNode->pNext;
 	pCurrentNode->pNext = node;
 	return true;
 }
-//	前插的另一种
+
+// 前插的另一种
 bool InsertForward(LinkList list, ElemType data) {
 	if (list == NULL)
 	{
@@ -117,8 +122,8 @@ bool InsertForward(LinkList list, ElemType data) {
 	}
 	node->pNext = list->pNext;
 	list->pNext = node;
-	node->data = list->data;
-	list->data = data;
+	node->data  = list->data;
+	list->data  = data;
 	return true;
 }
 
@@ -133,34 +138,34 @@ bool InsertBack(LinkList& list, ElemType data) {
 	{
 		return false;
 	}
-	node->data = data;
+	node->data  = data;
 	node->pNext = list->pNext;
 	list->pNext = node;
 	return true;
 }
 
-//	删除index处的节点，data为删除节点处的值
+// 删除index处的节点，data为删除节点处的值
 bool DeleteNode(LinkList& list, int index, ElemType& data) {
 	if (index < 1)
 	{
 		return false;
 	}
-	LNode* pCurrentNode;		//	该节点指向当前扫描的节点
-	int currentIndex = 0;		//	当前扫描的位置
+	LNode* pCurrentNode;  // 该节点指向当前扫描的节点
+	int currentIndex = 0; // 当前扫描的位置
 	pCurrentNode = list;
 	while (pCurrentNode != NULL && currentIndex < index - 1)
 	{
 		pCurrentNode = pCurrentNode->pNext;
 		currentIndex++;
 	}
-	//	若index超过了链表的大小或者index节点是最后一个节点
+	// 若index超过了链表的大小或者index节点是最后一个节点
 	if (pCurrentNode == NULL || pCurrentNode->pNext == NULL)
 	{
 		return false;
 	}
-	LNode* deletedNode = pCurrentNode->pNext;	//	指向要被删除的节点
+	LNode* deletedNode  = pCurrentNode->pNext; // 指向要被删除的节点
 	pCurrentNode->pNext = deletedNode->pNext;
-	data = deletedNode->data;
+	data                = deletedNode->data;
 	free(deletedNode);
 	return true;
 }
@@ -172,16 +177,20 @@ bool DeleteNode(LNode* node) {
 		return false;
 	}
 	LNode* nextNode = node->pNext;
-	node->data = nextNode->data;
-	node->pNext = nextNode->pNext;
+	node->data      = nextNode->data;
+	node->pNext     = nextNode->pNext;
 	free(nextNode);
 	return true;
 }
 
 int main() {
 	LinkList list = InitList();
+	if (list == NULL)
+	{
+		return -1;
+	}
 	printf("链表长度为：%d\n", GetLength(list));
-	//	前插法模拟插入1~9
+	// 前插法模拟插入1~9
 	for (size_t i = 1; i < 10; i++)
 	{
 		InsertForward(list, i, i);
