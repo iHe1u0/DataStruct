@@ -49,3 +49,6 @@ int GetIndex(SString source, SString substring);
 // 若 source1 = source2，返回值 =0
 // 若 source1 < source2，返回值 <0
 int StringCompare(SString source1, SString source2);
+
+// 朴素模式匹配算法
+int Index(SString mainString, SString subString);
