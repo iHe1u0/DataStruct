@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "队列", "队列\队列.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "串", "串\串.vcxproj", "{8E73F220-CAA2-4F3A-AC6F-A85EDB0D1CEF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KMP算法", "KMP算法\KMP算法.vcxproj", "{002FBCE4-6A26-4D90-B13F-B0259B967B49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{8E73F220-CAA2-4F3A-AC6F-A85EDB0D1CEF}.Release|x64.Build.0 = Release|x64
 		{8E73F220-CAA2-4F3A-AC6F-A85EDB0D1CEF}.Release|x86.ActiveCfg = Release|Win32
 		{8E73F220-CAA2-4F3A-AC6F-A85EDB0D1CEF}.Release|x86.Build.0 = Release|Win32
+		{002FBCE4-6A26-4D90-B13F-B0259B967B49}.Debug|x64.ActiveCfg = Debug|x64
+		{002FBCE4-6A26-4D90-B13F-B0259B967B49}.Debug|x64.Build.0 = Debug|x64
+		{002FBCE4-6A26-4D90-B13F-B0259B967B49}.Debug|x86.ActiveCfg = Debug|Win32
+		{002FBCE4-6A26-4D90-B13F-B0259B967B49}.Debug|x86.Build.0 = Debug|Win32
+		{002FBCE4-6A26-4D90-B13F-B0259B967B49}.Release|x64.ActiveCfg = Release|x64
+		{002FBCE4-6A26-4D90-B13F-B0259B967B49}.Release|x64.Build.0 = Release|x64
+		{002FBCE4-6A26-4D90-B13F-B0259B967B49}.Release|x86.ActiveCfg = Release|Win32
+		{002FBCE4-6A26-4D90-B13F-B0259B967B49}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,7 +2,7 @@
 
 typedef int ElemType;
 
-#define MaxSize 50
+//#define MaxSize 50
 
 // 队列的顺序实现
 typedef struct {
