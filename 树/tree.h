@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 // 二叉树的顺序存储
 typedef int ElemType;
@@ -16,3 +17,21 @@ typedef struct BiTreeNode
 	ElemType data;
 	BiTreeNode* lchild, * rchild;
 }BiTreeNode, * BiTree;
+
+// 定义一个访问节点的方法，此处是打印节点的值
+void visit(BiTree& node);
+
+// 先序遍历
+void preOrder(BiTree& tree);
+
+// 中序遍历
+void inOrder(BiTree& tree);
+
+// 后序遍历
+void postOrder(BiTree& tree);
+
+// 层序遍历
+void levelOrder(BiTree& tree);
+
+// 获取树的深度/高度
+int getTreeDepth(BiTree& tree);
