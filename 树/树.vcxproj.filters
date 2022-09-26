@@ -15,11 +15,17 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="bitree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="tree.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bitree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="tree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
