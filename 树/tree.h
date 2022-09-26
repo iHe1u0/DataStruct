@@ -15,8 +15,18 @@ struct TreeNode
 typedef struct BiTreeNode
 {
 	ElemType data;
-	BiTreeNode* lchild, * rchild;
+	struct BiTreeNode* lchild, * rchild;
+	// 左右线索标志
+	bool lTag, rTag;
 }BiTreeNode, * BiTree;
+// 线索二叉树的结构体
+typedef struct ThreadNode
+{
+	ElemType data;
+	struct ThreadNode* lchild, * rchild;
+	// 左右线索标志，true代表被线索化
+	bool lTag, rTag;
+}ThreadNode, * ThreadTree;
 
 // 定义一个访问节点的方法，此处是打印节点的值
 void visit(BiTree& node);
