@@ -28,13 +28,8 @@ struct ChildTreeNode
 struct ChildTreeBox
 {
 	ElemType data;
-	ChildTreeNode* firstChild; //第一个孩子
-};
-struct ChildTree
-{
-	ChildTreeBox nodes[MAX_TREE_SIZE];
-	int num, root; //结点数和根节点的位置
-};
+	BiTreeNode* lchild, * rchild;
+}BiTreeNode, * BiTree;
 
 // 孩子兄弟表示法（链式存储）
 typedef struct CSNode
